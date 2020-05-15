@@ -34,14 +34,6 @@ _getAllBillets = async () => {
     this.setState({billets})
 }
 
-/*on crée une méthode privé qui va s'occuper de naviger vers notre nouvel écran BilletDetail. cette action prend en paramètre l'id du billet que l'on souhaite afficher en détail */
- _displayBilletDetail = (PropsBilletDetail) => {
-    console.log('Détail du billet ayant pour ID : '+PropsBilletDetail._id)
-}
-
-/*_displayBilletDetail = (PropsBilletDetail) => {
-    this.props.navigation.navigate("BilletDetail", PropsBilletDetail)
-} */
 
 /*on crée une méthode privée qui va mettre à jour notre state*/
 _updateBillets = async newBillet => {
@@ -62,7 +54,14 @@ date: format(new Date(), 'dd/MM/yyyy'),
  setBillet(this.state.billets)
 }
 
-console.log(billets);
+/*on crée une méthode privé qui va s'occuper de naviger vers notre nouvel écran BilletDetail. cette action prend en paramètre l'id du billet que l'on souhaite afficher en détail */
+ _displayBilletDetail = (PropsBilletDetail) => {
+    console.log('Détail du billet ayant pour ID : '+PropsBilletDetail._id)
+    /*this.props.navigation.navigate("BilletDetail", PropsBilletDetail) */
+
+}
+
+
 render() {
 const {billets} = this.state
     return (
@@ -71,11 +70,12 @@ const {billets} = this.state
            <ScrollView>
            {billets.map(( props, index ) => (
                <Billet displayBilletDetail={this._displayBilletDetail}
-                 key={index}
-                 date={props.date}
+                key={index}
+                {...props}
+        /*         date={props.date}
                  username={props.username}
                  image={props.image}
-                 titre={props.titre}
+                 titre={props.titre} */
                  />
             ))}
           </ScrollView>
