@@ -1,19 +1,24 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react';
+//importer une fonction React Native qui se nomme Image
+import {StyleSheet, Text, View, Image } from 'react-native';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+import Accueil from './components/Accueil.js';
+
+import Navigation from './Navigation/navigation.js'
+
+
+
+/* API externe se nommant React Navigation.
+d'appeler la ou les fonctions depuis la librairie react-navigation-stack.
+importer la fonction createStackNavigator :
+import { createStackNavigator } from 'react-navigation-stack'*/
+
+export default class App extends Component {
+
+    render() {
+        return (
+       <Navigation/>
+         )
+    }
+
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
